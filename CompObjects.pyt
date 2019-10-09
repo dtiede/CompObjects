@@ -139,7 +139,7 @@ class CompObjects(object):
                 gd = 0
                 allOverlapping = 0
                 bad = 0
-                gdFID = 9999
+                gdFID = 999999
                 feat = row.shape
                 theLargest = 0
                 theArea = 0

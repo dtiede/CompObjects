@@ -89,6 +89,7 @@ class CompObjects(object):
         fld_allarea = parameters[2].valueAsText + "_alar"
         refLayer = parameters[0].valueAsText
         inputLayer = parameters[1].valueAsText
+        fields = arcpy.ListFields
         dist = parameters[3].value
         arcpy.AddField_management(refLayer, fld_bigarea, "Double", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
         arcpy.AddField_management(refLayer, fld_gd, "LONG", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
@@ -159,7 +160,7 @@ class CompObjects(object):
 
 
                 #fields = ("SHAPE@AREA")
-                with arcpy.da.SearchCursor(scratchworkspace + "\\clSelection", ["SHAPE@", "FID"]) as cur2:
+                with arcpy.da.SearchCursor(scratchworkspace + "\\clSelection", ["SHAPE@", "OID@"]) as cur2:
                     for row2 in cur2:
                         allOverlapping+=1
                         feat2 = row2[0]
